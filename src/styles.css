@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* colors */
+  --pgpt-clr-dark-blue: #03093e;
+  --pgpt-clr-normal-blue: #021056;
+  --pgpt-clr-light-blue: #0798f2;
+  --pgpt-clr-dark-yellow: #f2bc1b;
+  --pgpt-clr-light-yellow: #f2c879;
+  --pgpt-clr-white: #f2ede9;
+  --pgpt-clr-red: #ff293b;
+
+  /* Typography */
+  --pgpt-f-xs: 0.5rem;
+  --pgpt-f-s: 0.6rem;
+  --pgpt-f-n: 0.75rem;
+  --pgpt-f-m: 1rem;
+  --pgpt-f-l: 2rem;
+  --pgpt-f-xl: 4rem;
+  --pgpt-f-family: "Open Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: var(--pgpt-f-family);
+  color: var(--pgpt-clr-white);
+  background-color: var(--pgpt-clr-dark-blue);
+}
+
+.logo-name {
+  color: var(--pgpt-clr-dark-yellow);
+}
+
+.logo-name span {
+  color: var(--pgpt-clr-light-blue);
+}
