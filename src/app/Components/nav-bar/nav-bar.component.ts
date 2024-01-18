@@ -17,4 +17,9 @@ export class NavBarComponent {
     signUp: false,
     login: false,
   };
+  hamburrgerClicked: boolean = false;
+
+  handleHamburgerClick(): void {
+    this.hamburrgerClicked = !this.hamburrgerClicked;
+  }
 }

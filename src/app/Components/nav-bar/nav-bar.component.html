@@ -5,5 +5,19 @@
       <div class="btn login-btn" *ngIf="navBarElements.login">Login</div>
     </div>
   </div>
-  <div class="mobile-container"></div>
+  <div class="mobile-container">
+    <div
+      class="spans"
+      (click)="handleHamburgerClick()"
+      [ngClass]="{ active: hamburrgerClicked }"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="items" [ngClass]="{ active: hamburrgerClicked }">
+      <div class="item signup" *ngIf="navBarElements.signUp">Signup</div>
+      <div class="item login" *ngIf="navBarElements.login">Login</div>
+    </div>
+  </div>
 </div>
