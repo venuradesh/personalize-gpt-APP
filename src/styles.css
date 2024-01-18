@@ -44,3 +44,29 @@ body {
 .logo-name span {
   color: var(--pgpt-clr-light-blue);
 }
+
+@media only screen and (max-width: 1180px) {
+  :root {
+    /* Typography */
+    --pgpt-f-xs: 0.5rem;
+    --pgpt-f-s: 0.5rem;
+    --pgpt-f-n: 0.7rem;
+    --pgpt-f-m: 0.8rem;
+    --pgpt-f-l: 1.5rem;
+    --pgpt-f-xl: 3rem;
+    --pgpt-f-family: "Open Sans", sans-serif;
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  :root {
+    /* Typography */
+    --pgpt-f-xs: 0.5rem;
+    --pgpt-f-s: 0.5rem;
+    --pgpt-f-n: 0.6rem;
+    --pgpt-f-m: 0.7rem;
+    --pgpt-f-l: 1.3rem;
+    --pgpt-f-xl: 2.7rem;
+    --pgpt-f-family: "Open Sans", sans-serif;
+  }
+}

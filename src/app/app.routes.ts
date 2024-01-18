@@ -1,12 +1,12 @@
-import { Routes } from "@angular/router";
+import { Routes } from '@angular/router';
 
 //pages
-import { LandingPageComponent } from "./Pages/landing-page/landing-page.component";
+import { LandingPageComponent } from './Pages/landing-page/landing-page.component';
 
 export const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: LandingPageComponent,
-    pathMatch: "full",
+    pathMatch: 'full',
   },
 ];
