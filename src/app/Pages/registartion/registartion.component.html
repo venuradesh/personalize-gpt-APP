@@ -1,0 +1,57 @@
+<div class="reg-wrapper">
+  <div class="nav-bar-container">
+    <pgpt-nav-bar
+      [navBarElements]="navBarElements"
+      [landingPageContainer]="false"
+    ></pgpt-nav-bar>
+  </div>
+  <div class="content-container">
+    <div class="heading">Tell us about you</div>
+    <form class="registration">
+      <div class="span item">
+        <pgpt-input-field [caption]="'Your OpenAI API Key'"></pgpt-input-field>
+      </div>
+      <div class="item">
+        <pgpt-input-field [caption]="'First name'"></pgpt-input-field>
+      </div>
+      <div class="item">
+        <pgpt-input-field [caption]="'Last name'"></pgpt-input-field>
+      </div>
+      <div class="item">
+        <pgpt-input-field
+          [caption]="'Date of Birth (dd/mm/yyyy)'"
+          [type]="'text'"
+        ></pgpt-input-field>
+      </div>
+      <div class="item">
+        <pgpt-input-field [caption]="'Designation'"></pgpt-input-field>
+      </div>
+      <div class="span item">
+        <pgpt-input-field [caption]="'Organization name'"></pgpt-input-field>
+      </div>
+      <div class="span item">
+        <pgpt-input-field
+          [caption]="'Email address'"
+          [type]="'email'"
+        ></pgpt-input-field>
+      </div>
+      <div class="span item">
+        <pgpt-input-field [caption]="'Describe you briefly'"></pgpt-input-field>
+      </div>
+      <div class="item">
+        <pgpt-input-field
+          [caption]="'Your personality (Calm, Aggressive, etc...)'"
+        ></pgpt-input-field>
+      </div>
+      <div class="item">
+        <pgpt-input-field
+          [caption]="'Password'"
+          [type]="'password'"
+        ></pgpt-input-field>
+      </div>
+      <div class="btn-container">
+        <div class="btn continue">Continue to the Personalize GPT</div>
+      </div>
+    </form>
+  </div>
+</div>
