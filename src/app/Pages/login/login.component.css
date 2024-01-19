@@ -1,0 +1,98 @@
+.login-wrapper {
+  padding-inline: 2rem;
+  width: 100vw;
+  height: max-content;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+
+.login-wrapper .nav-bar-container {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--pgpt-clr-dark-blue);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.login-wrapper .content-container {
+  width: 100%;
+  height: calc(100vh - 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container .heading {
+  font-size: var(--pgpt-f-l);
+  color: var(--pgpt-clr-dark-yellow);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.login-wrapper .content-container .login {
+  width: clamp(15rem, 40vw, 28rem);
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -3rem;
+}
+
+.login .item {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.login .pass-forget {
+  font-size: var(--pgpt-f-n);
+}
+
+.login .pass-forget:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--pgpt-clr-light-blue);
+}
+
+.login .btn-container {
+  width: 100%;
+  margin-block: 1rem;
+}
+
+.login .btn-container .btn {
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--pgpt-clr-dark-yellow);
+  color: var(--pgpt-clr-dark-blue);
+  font-weight: 700;
+  font-size: var(--pgpt-f-m);
+  border-radius: 50px;
+}
+
+.login .btn-container .btn:hover {
+  background-color: var(--pgpt-clr-light-yellow);
+}
+
+.login .create-acc {
+  font-size: var(--pgpt-f-n);
+}
+
+.login .create-acc span {
+  color: var(--pgpt-clr-light-blue);
+  cursor: pointer;
+}
+
+.login .create-acc span:hover {
+  text-decoration: underline;
+}

@@ -18,6 +18,10 @@
   --pgpt-f-l: 2rem;
   --pgpt-f-xl: 4rem;
   --pgpt-f-family: "Open Sans", sans-serif;
+
+  --side-bar-min-width: 18rem;
+  --side-bar-width: clamp(18rem, 30vw, 22rem);
+  --side-bar-max-width: 22rem;
 }
 
 * {
