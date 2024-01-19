@@ -1,0 +1,205 @@
+.home-wrapper {
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  /* display: flex; */
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* img {
+  width: 2rem;
+} */
+
+.side-bar-container {
+  width: var(--side-bar-width);
+  height: 100%;
+  padding-inline: 1rem;
+  padding-top: 1rem;
+  margin-right: 2rem;
+  background-color: var(--pgpt-clr-dark-blue);
+  /* background: red; */
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.side-bar-container.inactive {
+  transform: translateX(-100%);
+  /* visibility: hidden; */
+}
+
+.side-bar-container .slide {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%) rotateZ(180deg);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.side-bar-container .slide img {
+  width: 2rem;
+}
+
+.side-bar-container.inactive .slide {
+  transform: translateY(-50%) rotateZ(0deg) translateX(2rem);
+}
+
+.side-bar-container .side-bar-panel {
+  width: 100%;
+}
+
+.side-bar-panel .logo-container {
+  display: flex;
+  align-items: flex-end;
+  /* justify-content: center; */
+  column-gap: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.side-bar-panel .logo-container img {
+  width: clamp(2rem, 20%, 4rem);
+}
+
+.side-bar-panel .logo-container .name-caption .name {
+  font-size: var(--pgpt-f-l);
+  font-weight: 700;
+  color: var(--pgpt-clr-dark-yellow);
+}
+
+.side-bar-panel .logo-container .name-caption .name span {
+  color: var(--pgpt-clr-light-blue);
+}
+
+.logo-container .name-caption .caption {
+  font-size: var(--pgpt-f-s);
+  /* font-weight: 700; */
+}
+
+.side-bar-items {
+  width: 100%;
+  height: calc(100vh - 4rem - 7rem);
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bar-items img {
+  width: 2rem;
+}
+
+.side-bar-items .upper-items {
+  flex: 1;
+}
+
+.side-bar-items .upper-items .new-chat {
+  width: 100%;
+  height: 3rem;
+  background-color: var(--pgpt-clr-dark-yellow);
+  color: var(--pgpt-clr-dark-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  font-size: var(--pgpt-f-m);
+}
+
+.side-bar-items .upper-items .new-chat span {
+  font-size: 1.3rem;
+}
+
+.upper-items .chat-bot-container {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--pgpt-clr-dark-yellow);
+  border-bottom: 1px solid var(--pgpt-clr-dark-yellow);
+  margin-bottom: 1rem;
+}
+
+.upper-items .chat-bot-container .btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  outline: none;
+  border: none;
+}
+
+.upper-items .chat-bot-container .btn .content {
+  font-size: var(--pgpt-f-m);
+  color: var(--pgpt-clr-dark-yellow);
+  font-weight: 600;
+}
+
+.upper-items .options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.upper-items .options .btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 1rem;
+  color: var(--pgpt-clr-dark-yellow);
+  font-weight: 600;
+  outline: none;
+  border: none;
+  height: 3rem;
+  font-size: var(--pgpt-f-m);
+}
+
+.lower-items {
+  width: 100%;
+}
+
+.lower-items .profile {
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+  background-color: var(--pgpt-clr-white);
+  color: var(--pgpt-clr-dark-blue);
+  border-radius: 12px;
+  font-weight: 700;
+  text-align: left;
+  font-size: var(--pgpt-f-m);
+}
+
+.home-wrapper .chat-display {
+  width: clamp(
+    calc(100vw - var(--side-bar-max-width) - 3rem),
+    70vw,
+    calc(100vw - var(--side-bar-min-width) - 3rem)
+  );
+  height: calc(100vh - 2rem);
+  background-color: var(--pgpt-clr-normal-blue);
+  border-radius: 12px;
+  position: relative;
+  left: calc(var(--side-bar-width) + 1rem);
+  transition: all 0.3s ease-in-out;
+}
+
+.home-wrapper .chat-display.active {
+  left: 0;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .home-wrapper .chat-display {
+    width: 100%;
+    left: 0;
+  }
+}

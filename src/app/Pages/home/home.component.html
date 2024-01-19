@@ -1,0 +1,50 @@
+<div class="home-wrapper">
+  <div
+    class="side-bar-container"
+    #sidebarContainer
+    [ngClass]="{ inactive: !sideBarIn }"
+  >
+    <div class="slide" (click)="handleSlide()">
+      <img src="../../../assets/Icons/slide-right.png" alt="slide" />
+    </div>
+    <div class="side-bar-panel" #sidebar>
+      <div class="logo-container">
+        <img src="../../../assets/Icons/logo-stroke-low.png" alt="logo" />
+        <div class="name-caption">
+          <div class="name">Personalize<span>GPT</span></div>
+          <div class="caption">
+            Customized Intelligence, Seamless Conversations
+          </div>
+        </div>
+      </div>
+      <div class="side-bar-items">
+        <div class="upper-items">
+          <div class="new-chat"><span>+</span> Start a new Chat</div>
+          <div class="chat-bot-container">
+            <div class="btn chat-bot-start">
+              <img src="../../../assets/Icons/bot.png" alt="start bot" />
+              <div class="content">Document Analyzer Chatbot</div>
+            </div>
+          </div>
+          <div class="options">
+            <div class="settings item btn">
+              <img src="../../../assets/Icons/admin.png" alt="settings" />
+              <div class="content">Settings</div>
+            </div>
+            <div class="llm-model-change btn">
+              <img src="../../../assets/Icons/modal.png" alt="model change" />
+              <div class="content">Change LLM Model</div>
+            </div>
+          </div>
+        </div>
+        <div class="lower-items">
+          <div class="profile item btn">
+            <img src="../../../assets/Icons/user.png" alt="user" />
+            <div class="content">Venura Warnasooriya</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chat-display" #chat [ngClass]="{ active: !sideBarIn }"></div>
+</div>
