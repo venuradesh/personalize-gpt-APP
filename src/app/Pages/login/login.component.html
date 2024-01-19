@@ -1,0 +1,29 @@
+<div class="login-wrapper">
+  <div class="nav-bar-container">
+    <pgpt-nav-bar [navBarElements]="navBarElements"></pgpt-nav-bar>
+  </div>
+  <div class="content-container">
+    <form class="login">
+      <div class="heading">Welcome Back!</div>
+      <div class="email item">
+        <pgpt-input-field
+          [caption]="'Email'"
+          [type]="'email'"
+        ></pgpt-input-field>
+      </div>
+      <div class="password item">
+        <pgpt-input-field
+          [caption]="'Password'"
+          [type]="'password'"
+        ></pgpt-input-field>
+      </div>
+      <div class="pass-forget">Forgot password?</div>
+      <div class="btn-container">
+        <div class="btn continue">Continue</div>
+      </div>
+      <div class="create-acc">
+        Don't have an account? <span>SignUp for free</span>
+      </div>
+    </form>
+  </div>
+</div>

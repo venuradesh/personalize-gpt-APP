@@ -4,6 +4,7 @@ import { Routes } from '@angular/router';
 import { LandingPageComponent } from './Pages/landing-page/landing-page.component';
 import { ModelSelectionComponent } from './Pages/model-selection/model-selection.component';
 import { RegistartionComponent } from './Pages/registartion/registartion.component';
+import { LoginComponent } from './Pages/login/login.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,11 @@ export const routes: Routes = [
   {
     path: 'registration',
     component: RegistartionComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
     pathMatch: 'full',
   },
 ];
