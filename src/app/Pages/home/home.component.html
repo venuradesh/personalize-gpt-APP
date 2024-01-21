@@ -72,7 +72,10 @@
         </div>
       </div>
     </div>
-    <div class="chat-section">
+    <div
+      class="chat-section"
+      [ngClass]="{ historyActivated: historyPanelOpened }"
+    >
       <div class="chat-container">
         <div class="starting-container" *ngIf="messages.length === 0">
           <img src="../../../assets/Icons/logo-low.png" alt="logo" />

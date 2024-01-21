@@ -300,6 +300,11 @@
   row-gap: 1rem;
 }
 
+.chat-display .chat-section.historyActivated {
+  position: relative;
+  left: -10%;
+}
+
 .chat-display .chat-section .chat-container {
   width: 100%;
   height: 100%;
@@ -555,6 +560,12 @@
   cursor: pointer;
   font-size: var(--pgpt-f-n);
   font-weight: 700;
+}
+
+@media only screen and (max-width: 1280px) {
+  .chat-display .chat-section.historyActivated {
+    left: 0%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
