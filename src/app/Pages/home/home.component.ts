@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   messages: any = [];
   documentAnalyzerOn: boolean = false;
   documentAnalyzerMinimized: boolean = false;
+  fileInputted: boolean = false;
 
   ngOnInit(): void {
     if (window.innerWidth <= 950) {
@@ -81,5 +82,12 @@ export class HomeComponent implements OnInit {
 
   handleDocumenntAnalyzerMinimized(): void {
     this.documentAnalyzerMinimized = true;
+  }
+
+  onDocumentAnalyzerClick(): void {
+    this.documentAnalyzerOn = true;
+    if (window.innerWidth <= 950) {
+      this.sideBarIn = false;
+    }
   }
 }

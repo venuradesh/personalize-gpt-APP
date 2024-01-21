@@ -23,7 +23,9 @@
           <div class="chat-bot-container">
             <div class="btn chat-bot-start">
               <img src="../../../assets/Icons/bot.png" alt="start bot" />
-              <div class="content">Document Analyzer Chatbot</div>
+              <div class="content" (click)="onDocumentAnalyzerClick()">
+                Document Analyzer Chatbot
+              </div>
             </div>
           </div>
           <div class="options">
@@ -107,22 +109,33 @@
       </div>
     </div>
   </div>
-  <div class="chat-bot-wrapper">
+  <div class="chat-bot-wrapper" *ngIf="documentAnalyzerOn">
     <div class="bot-logo">
       <img src="../../../assets/Icons/bot.png" alt="bot" />
     </div>
     <div class="bot-chat">
       <div class="btn-container">
-        <div class="minimize">
+        <!-- <div class="minimize btn" (click)="documentAnalyzerMinimized = true">
           <img src="../../../assets/Icons/minus.png" alt="minimize" />
-        </div>
-        <div class="close">
+        </div> -->
+        <div class="close btn" (click)="documentAnalyzerOn = false">
           <img src="../../../assets/Icons/cancel.png" alt="close" />
         </div>
       </div>
-      <div class="chat-bot-container"></div>
+      <div class="chat-bot-container">
+        <div class="starting-container">
+          <img src="../../../assets/Icons/logo-low.png" alt="logo" />
+          <div class="content">Upload your document to start the chat</div>
+          <div class="upload">
+            <div class="btn" (click)="file_input.click()">
+              Upload the Document
+            </div>
+            <input type="file" #file_input name="doc" id="doc" accept=".pdf" />
+          </div>
+        </div>
+      </div>
       <div class="input-container">
-        <input type="text" />
+        <input type="text" class="value-input" />
         <img src="../../../assets/Icons/send.png" alt="send" />
       </div>
     </div>
