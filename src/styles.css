@@ -49,6 +49,15 @@ body {
   color: var(--pgpt-clr-light-blue);
 }
 
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--pgpt-clr-light-blue);
+  border-radius: 12px;
+}
+
 @media only screen and (max-width: 1180px) {
   :root {
     /* Typography */

@@ -46,5 +46,85 @@
       </div>
     </div>
   </div>
-  <div class="chat-display" #chat [ngClass]="{ active: !sideBarIn }"></div>
+  <div class="chat-display" #chat [ngClass]="{ active: !sideBarIn }">
+    <div class="history-btn" (click)="handleHistoryPanelClick()">
+      <img src="../../../assets/Icons/clock.png" alt="clock" />
+    </div>
+    <div class="history-panel" [ngClass]="{ active: historyPanelOpened }">
+      <div class="close" (click)="handleHistoryCloseClick()">
+        <img src="../../../assets/Icons/cancel.png" alt="close" />
+      </div>
+      <div class="title">History</div>
+      <div class="items">
+        <div class="item">
+          <img src="../../../assets/Icons/message.png" alt="message" />
+          <div class="content">
+            What is the capital of Sri Lanka sasdasd asdas
+          </div>
+        </div>
+        <div class="item">
+          <img src="../../../assets/Icons/message.png" alt="message" />
+          <div class="content">
+            What is the capital of Sri Lanka sasdasd asdas
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-section">
+      <div class="chat-container">
+        <div class="starting-container" *ngIf="messages.length === 0">
+          <img src="../../../assets/Icons/logo-low.png" alt="logo" />
+          <div class="content">
+            <div class="welcome">Hello Venura,</div>
+            <div class="help">Is there anything you need from me?</div>
+          </div>
+        </div>
+        <div class="chat-wrapper" *ngIf="messages.length > 0">
+          <div class="chat-part" *ngFor="let data of messages">
+            <div class="user-chat chat" *ngIf="data.role === 'user'">
+              <div class="profile">
+                <img src="../../../assets/Icons/user.png" alt="user" />
+              </div>
+              <div class="content">{{ data.content }}</div>
+            </div>
+            <div class="bot-chat chat" *ngIf="data.role === 'bot'">
+              <div class="profile">
+                <img src="../../../assets/Icons/logo-low.png" alt="logo" />
+              </div>
+              <div class="content">{{ data.content }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input-container">
+        <input
+          type="text"
+          id="value-input"
+          class="value-input"
+          placeholder="Message PersonalizeGPT..."
+        />
+        <img src="../../../assets/Icons/send.png" alt="send" />
+      </div>
+    </div>
+  </div>
+  <div class="chat-bot-wrapper">
+    <div class="bot-logo">
+      <img src="../../../assets/Icons/bot.png" alt="bot" />
+    </div>
+    <div class="bot-chat">
+      <div class="btn-container">
+        <div class="minimize">
+          <img src="../../../assets/Icons/minus.png" alt="minimize" />
+        </div>
+        <div class="close">
+          <img src="../../../assets/Icons/cancel.png" alt="close" />
+        </div>
+      </div>
+      <div class="chat-bot-container"></div>
+      <div class="input-container">
+        <input type="text" />
+        <img src="../../../assets/Icons/send.png" alt="send" />
+      </div>
+    </div>
+  </div>
 </div>
