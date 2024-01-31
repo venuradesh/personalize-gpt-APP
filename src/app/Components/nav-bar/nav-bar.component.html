@@ -1,23 +1,19 @@
 <div class="nav-bar-container">
   <div class="desktop-container">
     <div class="btn-container">
-      <div class="btn signup-btn" *ngIf="navBarElements.signUp">SignUp</div>
-      <div class="btn login-btn" *ngIf="navBarElements.login">Login</div>
+      <div class="btn signup-btn" *ngIf="navBarElements.signUp" (click)="handleSignUp()">SignUp</div>
+      <div class="btn login-btn" *ngIf="navBarElements.login" (click)="handleLogin()">Login</div>
     </div>
   </div>
   <div class="mobile-container">
-    <div
-      class="spans"
-      (click)="handleHamburgerClick()"
-      [ngClass]="{ active: hamburrgerClicked }"
-    >
+    <div class="spans" (click)="handleHamburgerClick()" [ngClass]="{ active: hamburrgerClicked }">
       <span></span>
       <span></span>
       <span></span>
     </div>
     <div class="items" [ngClass]="{ active: hamburrgerClicked }">
-      <div class="item signup" *ngIf="navBarElements.signUp">Signup</div>
-      <div class="item login" *ngIf="navBarElements.login">Login</div>
+      <div class="item signup" *ngIf="navBarElements.signUp" (click)="handleSignUp()">Signup</div>
+      <div class="item login" *ngIf="navBarElements.login" (click)="handleLogin()">Login</div>
     </div>
   </div>
 </div>
