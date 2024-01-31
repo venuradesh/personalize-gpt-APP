@@ -96,3 +96,13 @@
 .login .create-acc span:hover {
   text-decoration: underline;
 }
+
+.error-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--pgpt-f-n);
+  color: var(--pgpt-clr-red);
+  margin-bottom: 1rem;
+}

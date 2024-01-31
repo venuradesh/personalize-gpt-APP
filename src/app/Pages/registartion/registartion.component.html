@@ -6,37 +6,42 @@
     <div class="heading">Tell us about you</div>
     <form class="registration">
       <div class="span item" *ngIf="openAIModelSelected">
-        <pgpt-input-field [caption]="'Your OpenAI API Key'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Your OpenAI API Key'" (inputValue)="handleOpenAIApiKey($event)"></pgpt-input-field>
       </div>
       <div class="item">
-        <pgpt-input-field [caption]="'First name'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'First name'" (inputValue)="handleFirstName($event)"></pgpt-input-field>
       </div>
       <div class="item">
-        <pgpt-input-field [caption]="'Last name'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Last name'" (inputValue)="handleLastName($event)"></pgpt-input-field>
       </div>
       <div class="item">
-        <pgpt-input-field [caption]="'Date of Birth (dd/mm/yyyy)'" [type]="'text'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Date of Birth (dd/mm/yyyy)'" [type]="'text'" (inputValue)="handleDob($event)"></pgpt-input-field>
       </div>
       <div class="item">
-        <pgpt-input-field [caption]="'Designation'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Designation'" (inputValue)="handleDesignation($event)"></pgpt-input-field>
       </div>
       <div class="span item">
-        <pgpt-input-field [caption]="'Organization name'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Organization name'" (inputValue)="handleOrganizationValue($event)"></pgpt-input-field>
       </div>
       <div class="span item">
-        <pgpt-input-field [caption]="'Email address'" [type]="'email'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Email address'" [type]="'email'" (inputValue)="handleEmail($event)"></pgpt-input-field>
       </div>
       <div class="span item">
-        <pgpt-input-field [caption]="'Describe you briefly'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Describe you briefly'" (inputValue)="handledDescription($event)"> </pgpt-input-field>
       </div>
       <div class="item">
-        <pgpt-input-field [caption]="'Your personality (Calm, Aggressive, etc...)'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Your personality (Calm, Aggressive, etc...)'" (inputValue)="handlePersonality($event)"></pgpt-input-field>
       </div>
       <div class="item">
-        <pgpt-input-field [caption]="'Password'" [type]="'password'"></pgpt-input-field>
+        <pgpt-input-field [caption]="'Password'" [type]="'password'" (inputValue)="handlePassword($event)"></pgpt-input-field>
+      </div>
+      <div class="span item error-container" *ngIf="error">
+        <div class="error">
+          *{{error}}
+        </div>
       </div>
       <div class="btn-container">
-        <div class="btn continue">Continue to the Personalize GPT</div>
+        <div class="btn continue" (click)="onSubmitClick()">Continue to the Personalize GPT</div>
       </div>
     </form>
   </div>

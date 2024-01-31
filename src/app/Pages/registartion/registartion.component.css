@@ -26,6 +26,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding-top: 3rem;
 }
 
 .reg-wrapper .content-container .heading {
@@ -55,6 +56,18 @@
   margin-top: 1rem;
 }
 
+.reg-wrapper .content-container .registration .error-container {
+  width: 100%;
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--pgpt-clr-red);
+  margin-bottom: -1rem;
+  font-size: var(--pgpt-f-n);
+}
+
 .registration .btn-container .btn {
   background-color: var(--pgpt-clr-dark-yellow);
   border-radius: 50px;
@@ -69,6 +82,10 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 5rem;
+  }
+
+  .reg-wrapper .content-container {
+    padding-top: 0;
   }
 
   .reg-wrapper .content-container .registration .span {
