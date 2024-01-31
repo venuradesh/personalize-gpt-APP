@@ -1,9 +1,6 @@
 <div class="model-selection-wrapper">
   <div class="nav-bar-container">
-    <pgpt-nav-bar
-      [navBarElements]="navBarElements"
-      [landingPageContainer]="false"
-    ></pgpt-nav-bar>
+    <pgpt-nav-bar [navBarElements]="navBarElements" [landingPageContainer]="false"></pgpt-nav-bar>
   </div>
   <div class="content-container">
     <div class="heading">Choose the Model</div>
@@ -27,17 +24,12 @@
         <div class="steps">
           <div class="sub-heading">To use this you need to,</div>
           <div class="step-container">
-            <div class="step">
-              <span>1. </span>Create an <a href="#">OpenAI account</a>
-            </div>
-            <div class="step">
-              <span>2. </span>Generate an <a href="#">API Key</a> and copy the
-              API Key
-            </div>
+            <div class="step"><span>1. </span>Create an <a href="https://platform.openai.com/" target="_blank">OpenAI account</a></div>
+            <div class="step"><span>2. </span>Generate an <a href="https://platform.openai.com/api-keys" target="_blank">API Key</a> and copy the API Key</div>
           </div>
         </div>
         <div class="btn-container">
-          <div class="continue btn">Continue with OpenAI</div>
+          <div class="continue btn" (click)="handleOpenAIClick()">Continue with OpenAI</div>
         </div>
       </div>
       <div class="llama model">
@@ -60,7 +52,7 @@
           <!-- <div class="sub-heading">Powered by LLAMA API</div> -->
         </div>
         <div class="btn-container">
-          <div class="continue btn">Continue with LLAMA-2</div>
+          <div class="continue btn" (click)="handleLLAMA2Click()">Continue with LLAMA-2</div>
         </div>
       </div>
     </div>
