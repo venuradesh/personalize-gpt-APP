@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
 //models
@@ -14,7 +14,7 @@ import { NavBarComponent } from "../../Components/nav-bar/nav-bar.component";
   templateUrl: "./model-selection.component.html",
   styleUrl: "./model-selection.component.css",
 })
-export class ModelSelectionComponent {
+export class ModelSelectionComponent implements OnInit {
   navBarElements: navBarModel = {
     signUp: false,
     login: true,
@@ -25,6 +25,13 @@ export class ModelSelectionComponent {
   };
 
   constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.modelSelected = {
+      llama2: false,
+      openAI: false,
+    };
+  }
 
   handleOpenAIClick(): void {
     this.modelSelected.openAI = true;
