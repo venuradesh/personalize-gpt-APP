@@ -179,11 +179,7 @@
 }
 
 .home-wrapper .chat-display {
-  width: clamp(
-    calc(100vw - var(--side-bar-max-width) - 3rem),
-    70vw,
-    calc(100vw - var(--side-bar-min-width) - 3rem)
-  );
+  width: clamp(calc(100vw - var(--side-bar-max-width) - 3rem), 70vw, calc(100vw - var(--side-bar-min-width) - 3rem));
   height: calc(100vh - 2rem);
   background-color: var(--pgpt-clr-normal-blue);
   border-radius: 12px;
@@ -329,6 +325,10 @@
   font-size: var(--pgpt-f-l);
   font-weight: 700;
   text-align: center;
+}
+
+.chat-display .chat-section .starting-container .content .welcome {
+  text-transform: capitalize;
 }
 
 .chat-section .chat-container .chat-wrapper {
@@ -560,6 +560,75 @@
   cursor: pointer;
   font-size: var(--pgpt-f-n);
   font-weight: 700;
+}
+
+/**
+*
+*Document analyzer chat
+*/
+.chat-bot-container .chat-container {
+  width: 100%;
+  height: max-content;
+}
+
+.chat-bot-container .chat-container .chat-part {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  column-gap: 0.5rem;
+}
+
+.chat-bot-container .chat-container .chat-part .user-chat {
+  font-size: var(--pgpt-f-n);
+  width: 90%;
+  padding: 0.5rem 0.5rem;
+  background-color: white;
+  border-radius: 6px;
+  border-bottom-left-radius: 0px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+  position: relative;
+  left: 2%;
+}
+
+.chat-bot-container .chat-container .chat-part .bot-chat {
+  font-size: var(--pgpt-f-n);
+  position: relative;
+  height: max-content;
+  width: 90%;
+  right: -8%;
+  top: 0;
+  padding: 0.5rem 0.5rem;
+  margin-block: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  border-bottom-right-radius: 0;
+  background-color: white;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.chat-bot-container .chat-container .pdf {
+  width: 98%;
+  margin-inline: auto;
+  background-color: white;
+  display: flex;
+  padding: 0.5rem 0.5rem;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 0.5rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3);
+  margin-top: 0.5rem;
+}
+
+.chat-bot-container .chat-container .pdf .name {
+  font-weight: 700;
+  font-size: var(--pgpt-f-n);
+  flex: 1;
+  height: 100%;
+  overflow-wrap: break-word;
+  text-align: left;
 }
 
 @media only screen and (max-width: 1280px) {

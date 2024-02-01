@@ -1,9 +1,5 @@
 <div class="home-wrapper">
-  <div
-    class="side-bar-container"
-    #sidebarContainer
-    [ngClass]="{ inactive: !sideBarIn }"
-  >
+  <div class="side-bar-container" #sidebarContainer [ngClass]="{ inactive: !sideBarIn }">
     <div class="slide" (click)="handleSlide()">
       <img src="../../../assets/Icons/slide-right.png" alt="slide" />
     </div>
@@ -42,7 +38,7 @@
         <div class="lower-items">
           <div class="profile item btn">
             <img src="../../../assets/Icons/user.png" alt="user" />
-            <div class="content">Venura Warnasooriya</div>
+            <div class="content">{{userFirstName}} {{userLastName}}</div>
           </div>
         </div>
       </div>
@@ -72,15 +68,12 @@
         </div>
       </div>
     </div>
-    <div
-      class="chat-section"
-      [ngClass]="{ historyActivated: historyPanelOpened }"
-    >
+    <div class="chat-section" [ngClass]="{ historyActivated: historyPanelOpened }">
       <div class="chat-container">
         <div class="starting-container" *ngIf="messages.length === 0">
           <img src="../../../assets/Icons/logo-low.png" alt="logo" />
           <div class="content">
-            <div class="welcome">Hello Venura,</div>
+            <div class="welcome">Hello {{userFirstName}},</div>
             <div class="help">Is there anything you need from me?</div>
           </div>
         </div>
@@ -92,7 +85,7 @@
               </div>
               <div class="content">{{ data.content }}</div>
             </div>
-            <div class="bot-chat chat" *ngIf="data.role === 'bot'">
+            <div class="bot-chat chat" *ngIf="data.role === 'personalizeGPT'">
               <div class="profile">
                 <img src="../../../assets/Icons/logo-low.png" alt="logo" />
               </div>
@@ -102,13 +95,8 @@
         </div>
       </div>
       <div class="input-container">
-        <input
-          type="text"
-          id="value-input"
-          class="value-input"
-          placeholder="Message PersonalizeGPT..."
-        />
-        <img src="../../../assets/Icons/send.png" alt="send" />
+        <input type="text" id="value-input" #input class="value-input" placeholder="Message PersonalizeGPT..." (click)="generateGreeting()" (keypress)="handleEnter($event)" />
+        <img src="../../../assets/Icons/send.png" alt="send" (click)="onSendClick()" />
       </div>
     </div>
   </div>
@@ -126,14 +114,32 @@
         </div>
       </div>
       <div class="chat-bot-container">
-        <div class="starting-container">
+        <div class="starting-container" *ngIf="!fileUploadedToChatBot">
           <img src="../../../assets/Icons/logo-low.png" alt="logo" />
           <div class="content">Upload your document to start the chat</div>
           <div class="upload">
             <div class="btn" (click)="file_input.click()">
               Upload the Document
             </div>
-            <input type="file" #file_input name="doc" id="doc" accept=".pdf" />
+            <input type="file" #file_input name="doc" id="doc" accept=".pdf" (change)="handleFileUpload($event)" />
+          </div>
+        </div>
+        <div class="chat-container" *ngIf="fileUploadedToChatBot">
+          <div class="pdf">
+            <img src="../../../assets/Icons/pdf.png" alt="pdf" />
+            <div class="name">{{fileName}}</div>
+          </div>
+          <div class="chat-part" *ngFor="let message of docAnalyzerMessages">
+            <div class="user-chat chat" *ngIf="message.role === 'user'">
+              <div class="content">
+                {{message.content}}
+              </div>
+            </div>
+            <div class="bot-chat chat" *ngIf="message.role === 'bot'">
+              <div class="content">
+                {{message.content}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
