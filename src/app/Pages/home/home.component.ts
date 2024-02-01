@@ -22,13 +22,17 @@ export class HomeComponent implements OnInit {
   sideBarIn: boolean = true;
   historyPanelOpened: boolean = false;
   messages: any = [];
-  documentAnalyzerOn: boolean = false;
+  docAnalyzerMessages: any = [];
+  documentAnalyzerOn: boolean = true;
   documentAnalyzerMinimized: boolean = false;
-  fileInputted: boolean = false;
   userFirstName: any = "";
   userLastName: any = "";
   greetingInserted: boolean = false;
   loadingActivated: boolean = false;
+  fileUploadedToChatBot: boolean = false;
+  fileAnalyzeLoading: boolean = false;
+  file: File | null = null;
+  fileName: string | null = "";
 
   constructor(private chatService: ChatService) {}
 
@@ -38,7 +42,7 @@ export class HomeComponent implements OnInit {
     }
     this.userFirstName = localStorage.getItem("first_name");
     this.userLastName = localStorage.getItem("last_name");
-    // this.messages = sampleMessages;
+    this.docAnalyzerMessages = sampleMessages;
   }
 
   handleSlide(): void {
@@ -152,5 +156,12 @@ export class HomeComponent implements OnInit {
     } else {
       return;
     }
+  }
+
+  handleFileUpload(event: any): void {
+    this.file = event.target.files[0];
+    this.fileUploadedToChatBot = true;
+    this.fileName = event.target.files[0].name;
+    console.log(this.file);
   }
 }

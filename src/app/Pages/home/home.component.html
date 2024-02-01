@@ -114,14 +114,32 @@
         </div>
       </div>
       <div class="chat-bot-container">
-        <div class="starting-container">
+        <div class="starting-container" *ngIf="!fileUploadedToChatBot">
           <img src="../../../assets/Icons/logo-low.png" alt="logo" />
           <div class="content">Upload your document to start the chat</div>
           <div class="upload">
             <div class="btn" (click)="file_input.click()">
               Upload the Document
             </div>
-            <input type="file" #file_input name="doc" id="doc" accept=".pdf" />
+            <input type="file" #file_input name="doc" id="doc" accept=".pdf" (change)="handleFileUpload($event)" />
+          </div>
+        </div>
+        <div class="chat-container" *ngIf="fileUploadedToChatBot">
+          <div class="pdf">
+            <img src="../../../assets/Icons/pdf.png" alt="pdf" />
+            <div class="name">{{fileName}}</div>
+          </div>
+          <div class="chat-part" *ngFor="let message of docAnalyzerMessages">
+            <div class="user-chat chat" *ngIf="message.role === 'user'">
+              <div class="content">
+                {{message.content}}
+              </div>
+            </div>
+            <div class="bot-chat chat" *ngIf="message.role === 'bot'">
+              <div class="content">
+                {{message.content}}
+              </div>
+            </div>
           </div>
         </div>
       </div>
