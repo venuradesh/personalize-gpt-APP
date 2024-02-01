@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     }
     this.userFirstName = localStorage.getItem("first_name");
     this.userLastName = localStorage.getItem("last_name");
-    this.docAnalyzerMessages = sampleMessages;
+    // this.docAnalyzerMessages = sampleMessages;
   }
 
   handleSlide(): void {
