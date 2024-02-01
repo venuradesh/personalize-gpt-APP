@@ -179,11 +179,7 @@
 }
 
 .home-wrapper .chat-display {
-  width: clamp(
-    calc(100vw - var(--side-bar-max-width) - 3rem),
-    70vw,
-    calc(100vw - var(--side-bar-min-width) - 3rem)
-  );
+  width: clamp(calc(100vw - var(--side-bar-max-width) - 3rem), 70vw, calc(100vw - var(--side-bar-min-width) - 3rem));
   height: calc(100vh - 2rem);
   background-color: var(--pgpt-clr-normal-blue);
   border-radius: 12px;
@@ -329,6 +325,10 @@
   font-size: var(--pgpt-f-l);
   font-weight: 700;
   text-align: center;
+}
+
+.chat-display .chat-section .starting-container .content .welcome {
+  text-transform: capitalize;
 }
 
 .chat-section .chat-container .chat-wrapper {
