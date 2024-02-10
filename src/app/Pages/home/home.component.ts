@@ -6,6 +6,7 @@ import { sampleMessages } from "../../SampleData/sampledata";
 
 //services
 import { ChatService } from "../../Services/chat.service";
+import { ChatBotService } from "../../Services/chat-bot.service";
 
 @Component({
   selector: "pgpt-home",
@@ -19,11 +20,12 @@ export class HomeComponent implements OnInit {
   @ViewChild("sidebarContainer") sidebarContainer!: ElementRef;
   @ViewChild("chat") chat!: ElementRef;
   @ViewChild("input") inputContainer!: ElementRef;
+  @ViewChild("chat_bot_input") chat_bot_input!: ElementRef;
   sideBarIn: boolean = true;
   historyPanelOpened: boolean = false;
   messages: any = [];
   docAnalyzerMessages: any = [];
-  documentAnalyzerOn: boolean = true;
+  documentAnalyzerOn: boolean = false;
   documentAnalyzerMinimized: boolean = false;
   userFirstName: any = "";
   userLastName: any = "";
@@ -33,8 +35,9 @@ export class HomeComponent implements OnInit {
   fileAnalyzeLoading: boolean = false;
   file: File | null = null;
   fileName: string | null = "";
+  choosed_llm: string | null = "";
 
-  constructor(private chatService: ChatService) {}
+  constructor(private chatService: ChatService, private chatbotService: ChatBotService) {}
 
   ngOnInit(): void {
     if (window.innerWidth <= 950) {
@@ -42,6 +45,7 @@ export class HomeComponent implements OnInit {
     }
     this.userFirstName = localStorage.getItem("first_name");
     this.userLastName = localStorage.getItem("last_name");
+    this.choosed_llm = localStorage.getItem("choosed_llm");
     // this.docAnalyzerMessages = sampleMessages;
   }
 
@@ -137,7 +141,7 @@ export class HomeComponent implements OnInit {
         },
       ];
 
-      this.chatService.generateChatResponse(user_id, query, this.messages).subscribe({
+      this.chatService.generateChatResponse(user_id, query, this.messages, this.choosed_llm).subscribe({
         next: (val) => {
           this.messages = [
             ...this.messages,
@@ -160,8 +164,50 @@ export class HomeComponent implements OnInit {
 
   handleFileUpload(event: any): void {
     this.file = event.target.files[0];
-    this.fileUploadedToChatBot = true;
     this.fileName = event.target.files[0].name;
-    console.log(this.file);
+    this.chatbotService.load_doc(this.file, this.fileName).subscribe({
+      next: (val) => {
+        this.fileUploadedToChatBot = true;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  handleChatBotInput(event: any): void {
+    const query = this.chat_bot_input.nativeElement.value;
+    if (!query) return;
+    else {
+      this.docAnalyzerMessages = [
+        ...this.docAnalyzerMessages,
+        {
+          role: "user",
+          content: query,
+        },
+      ];
+      this.chat_bot_input.nativeElement.value = "";
+      this.chatbotService.getResponseFromBot(query, this.fileName).subscribe({
+        next: (val) => {
+          this.docAnalyzerMessages = [
+            ...this.docAnalyzerMessages,
+            {
+              role: "bot",
+              content: val.body.data,
+            },
+          ];
+        },
+        error: (err) => console.log(err),
+      });
+    }
+  }
+
+  handleCloseBtn(): void {
+    this.documentAnalyzerOn = false;
+    this.docAnalyzerMessages = [];
+    this.fileUploadedToChatBot = false;
+    this.chat_bot_input.nativeElement.value = "";
+    this.file = null;
+    this.fileName = "";
   }
 }

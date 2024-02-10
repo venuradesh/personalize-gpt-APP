@@ -6,27 +6,28 @@ import { environments } from "../../environments/environments";
 @Injectable({
   providedIn: "root",
 })
-export class ChatService {
+export class ChatBotService {
   private readonly API_URL: string;
 
   constructor(private httpClient: HttpClient) {
     this.API_URL = environments.apiUrl;
   }
 
-  generateGreeting(user_id: any): Observable<any> {
-    return this.httpClient.get(`${this.API_URL}/get-greetings`, {
-      params: new HttpParams().set("user_id", user_id),
+  load_doc(file: any, file_name: any): Observable<any> {
+    const formData = new FormData();
+    formData.append("file", file, file_name);
+    return this.httpClient.post(`${this.API_URL}/analyze-doc`, formData, {
+      observe: "response",
+      withCredentials: true,
     });
   }
 
-  generateChatResponse(user_id: any, message: string, chat_history: Array<{ role: string; content: string }>, choosed_llm: any): Observable<any> {
+  getResponseFromBot(query: string, file_name: any): Observable<any> {
     return this.httpClient.post(
-      `${this.API_URL}/query`,
+      `${this.API_URL}/doc-query`,
       {
-        user_id: user_id,
-        message: message,
-        choosed_llm: choosed_llm,
-        chat_history: chat_history,
+        file_name: file_name,
+        query: query,
       },
       {
         observe: "response",
