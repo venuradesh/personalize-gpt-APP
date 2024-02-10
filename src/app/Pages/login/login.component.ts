@@ -50,6 +50,7 @@ export class LoginComponent {
     if (this.loginData.email && this.loginData.password) {
       this.userSerice.user_login(this.loginData.email, this.loginData.password).subscribe({
         next: (val) => {
+          console.log(val);
           localStorage.setItem("user_id", val.body.user_id);
           localStorage.setItem("choosed_llm", val.body.choosed_llm);
           localStorage.setItem("first_name", val.body.first_name);

@@ -109,7 +109,7 @@
         <!-- <div class="minimize btn" (click)="documentAnalyzerMinimized = true">
           <img src="../../../assets/Icons/minus.png" alt="minimize" />
         </div> -->
-        <div class="close btn" (click)="documentAnalyzerOn = false">
+        <div class="close btn" (click)="handleCloseBtn()">
           <img src="../../../assets/Icons/cancel.png" alt="close" />
         </div>
       </div>
@@ -144,8 +144,8 @@
         </div>
       </div>
       <div class="input-container">
-        <input type="text" class="value-input" />
-        <img src="../../../assets/Icons/send.png" alt="send" />
+        <input type="text" class="value-input" #chat_bot_input />
+        <img src="../../../assets/Icons/send.png" alt="send" (click)="handleChatBotInput($event)" />
       </div>
     </div>
   </div>
